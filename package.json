@@ -1,0 +1,23 @@
+{
+  "name": "lnug_client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install:elm": "elm package install -y",
+    "build": "elm make src/Main.elm --output public/elm.js",
+    "watch": "watch 'npm run build' src",
+    "livereload": "parallelshell 'livereload public/' 'npm run watch'",
+    "dev": "parallelshell 'npm start' 'npm run livereload'",
+    "start": "serve public -p 8181"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies" :{
+    "elm": "^0.18.0",
+    "node-sass": "^3.7.0",
+    "parallelshell": "^2.0.0",
+    "serve": "^1.4.0",
+    "watch": "^0.18.0"
+  }
+}
