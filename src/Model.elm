@@ -1,7 +1,16 @@
-module Model exposing (Model, Speaker, Msg(..), defaultModel)
+module Model exposing (Model, Speaker, Msg(..), RemoteData(..), defaultModel)
+import Http
 type Msg =
   NoOp
   | SearchQueryChange String
+  | SearchResults (Result Http.Error String)
+
+
+type RemoteData a =
+  NotRequested
+  | Pending
+  | Success a
+  | Failed String
 
 type alias Speaker = {
   name : String,
@@ -11,6 +20,7 @@ type alias Speaker = {
 type alias Model = {
   title : String,
   searchQuery : String,
+  searchResult : RemoteData String,
   speakers : List Speaker
   }
 
@@ -19,6 +29,7 @@ defaultModel =
   {
     title = "Lnug Search",
     searchQuery = "",
+    searchResult = NotRequested,
     speakers =
       [
         {
