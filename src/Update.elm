@@ -13,8 +13,8 @@ update message state =
         }, getSearchResults query)
     SearchResults (Ok result) ->
       ({state | searchResult = Success result }, Cmd.none)
-    SearchResults (Err _) ->
-      ({state | searchResult = Failed "Oh No!" }, Cmd.none)
+    SearchResults (Err err) ->
+      ({state | searchResult = Failed <| errorResponseToString err }, Cmd.none)
     NoOp ->
       (state, Cmd.none)
 
@@ -24,3 +24,14 @@ getSearchResults query =
   Http.send SearchResults
   <| Http.getString
   <| "http://localhost:8080?query=" ++ query
+
+
+errorResponseToString : Http.Error -> String
+errorResponseToString err =
+  case err of
+    Http.Timeout -> "Timeout"
+    Http.BadUrl err -> err
+    Http.NetworkError -> "NetworkError"
+    Http.BadStatus {status, body} ->
+        (toString status) ++ ": " ++ body
+    Http.BadPayload err {status, body} -> (toString status) ++ ": " ++ err ++ "/n" ++ body
