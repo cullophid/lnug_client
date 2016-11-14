@@ -1,5 +1,5 @@
 import Html exposing(Html, program)
-import Model exposing (Model, Msg)
+import Model exposing (..)
 import View
 import Update
 

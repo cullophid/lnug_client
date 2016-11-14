@@ -20,14 +20,25 @@ view {title, searchQuery, searchResult} =
           label [for "search-field"][text "Search..."]
         ]
       ],
-      pre [] [showSearchResults searchResult]
+      pre [] [renderSearchResults searchResult]
     ]
   ]
 
-showSearchResults : RemoteData String -> Html Msg
-showSearchResults result =
+renderSearchResults : RemoteData (List Talk) -> Html Msg
+renderSearchResults result =
   case result of
     NotRequested -> text "Type in the field above to search"
     Pending -> text "Loading"
-    Success result -> text result
+    Success talks -> ul [class "collection"] <| List.map renderTalk talks
     Failed err -> text err
+
+
+renderTalk : Talk -> Html Msg
+renderTalk {title, description} =
+  li [class "collection-item avatar"] [
+    i [class "material-icons circle pink"] [text "picture_in_picture"],
+    div [] [
+      span [class "title"] [text title],
+      p [] [text description]
+    ]
+  ]

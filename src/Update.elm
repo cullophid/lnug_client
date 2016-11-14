@@ -1,6 +1,7 @@
 module Update exposing (update)
 import Model exposing (..)
 import Http
+import Json.Decode
 
 update: Msg -> Model -> (Model, Cmd Msg)
 update message state =
@@ -11,8 +12,8 @@ update message state =
           searchQuery = query,
           searchResult = Pending
         }, getSearchResults query)
-    SearchResults (Ok result) ->
-      ({state | searchResult = Success result }, Cmd.none)
+    SearchResults (Ok results) ->
+      ({state | searchResult = Success results }, Cmd.none)
     SearchResults (Err err) ->
       ({state | searchResult = Failed <| errorResponseToString err }, Cmd.none)
     NoOp ->
@@ -22,8 +23,7 @@ update message state =
 getSearchResults : String -> Cmd Msg
 getSearchResults query =
   Http.send SearchResults
-  <| Http.getString
-  <| "http://localhost:8080?query=" ++ query
+  <| Http.get ("http://localhost:8080?query=" ++ query) (Json.Decode.list talkDecoder)
 
 
 errorResponseToString : Http.Error -> String
