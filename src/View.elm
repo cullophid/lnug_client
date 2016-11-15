@@ -5,11 +5,11 @@ import Html.Attributes exposing (href, src, class, for, id, action, type_, style
 import Html.Events exposing (onInput)
 
 view : Model -> Html Msg
-view {title, searchQuery, searchResult} =
+view {searchQuery, searchResult} =
   div [class ""] [
     nav [class "nav-wrapper row purple darken-3"] [
       div [class "col s12"] [
-        span [class "brand-logo"] [text title]
+        a [ href "#", class "brand-logo"] [text "Talkfinder 2000"]
       ]
     ],
     div [class "container"] [
@@ -17,7 +17,7 @@ view {title, searchQuery, searchResult} =
         form [action "#", class "card"] [
           div [class "search-field"] [
             i [class "material-icons prefix text-xl grey-text text-darken-2"] [text "search"],
-            input [id "search-field", type_ "text", value searchQuery, onInput SearchQueryChange ] []
+            input [id "search-field", type_ "text", value searchQuery, onInput SearchQueryChange, placeholder "Search..."] []
           ]
         ]
       ],
@@ -30,7 +30,7 @@ view {title, searchQuery, searchResult} =
   ]
 
 emptyText : Html Msg
-emptyText = h4 [class "grey-text text-lighten-1 text-emp center-align"] [ text "Type in the field above to search"]
+emptyText = h4 [class "grey-text text-lighten-1 text-emp center-align anim-fade-in"] [ text "Type in the field above to search"]
 
 renderSearchResults : RemoteData (List Talk) -> Html Msg
 renderSearchResults result =
@@ -53,7 +53,7 @@ renderTalk {title, description, speaker} =
         renderSpeaker speaker
       ],
       div [class "card-action"] [
-        a [href "#", class "center-align inline-block"] [ text " Watch on YouTube"]
+        a [href "#", class "center-align inline-block"] [ text "YouTube"]
       ]
     ]
   ]

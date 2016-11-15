@@ -29,14 +29,12 @@ type alias Talk = {
 
 
 type alias Model = {
-  title : String,
   searchQuery : String,
   searchResult : RemoteData (List Talk)
   }
 
 defaultModel : Model
 defaultModel = {
-    title = "Lnug Search",
     searchQuery = "",
     searchResult = NotRequested
   }

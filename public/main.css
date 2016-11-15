@@ -1,7 +1,3 @@
-.brand-logo {
-  text-transform: uppercase;
-  font-weight: 200;
-}
 .search-field {
   box-sizing: border-box;
   position: relative;
@@ -21,6 +17,23 @@
   font-size: 1.6rem;
   padding: .8rem;
   padding-left: 3.2rem;
+}
+
+input::-webkit-input-placeholder {
+  font-size: 1.6rem;
+  font-weight: 200;
+}
+input:-moz-placeholder {
+  font-size: 1.6rem;
+  font-weight: 200;
+}
+input::-moz-placeholder {
+  font-size: 1.6rem;
+  font-weight: 200;
+}
+input:-ms-input-placeholder {
+   font-size: 1rem;
+   font-weight: 200;
 }
 .search-field > input:focus {
   border-bottom: none !important;
@@ -51,6 +64,11 @@ body, html {
   width: 100%;
   padding: 0;
   margin: 0;
+}
+
+body {
+  perspective: 800px;
+  font-weight: 300;
 }
 
 .anim-list-stagger > *:nth-child(2) {
@@ -141,6 +159,7 @@ animation-direction: reverse;
 
 .anim-fold-in {
  opacity: 0;
+ transform-origin: top;
  animation: foldIn 150ms 1;
  animation-fill-mode: forwards;
  animation-timing-function: ease-in;
@@ -242,7 +261,7 @@ animation-direction: reverse;
 @keyframes foldIn {
   0% {
     opacity:0;
-    transform: translateY(-20px) rotateX(-45deg);
+    transform: translateY(-20px) rotateX(-90deg);
   }
   100% {
     opacity:1;
