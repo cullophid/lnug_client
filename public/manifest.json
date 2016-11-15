@@ -1,0 +1,6 @@
+{
+  "name": "Talkfinder 2000",
+  "icons": [ ],
+  "start_url": "index.html",
+  "display": "standalone"
+}

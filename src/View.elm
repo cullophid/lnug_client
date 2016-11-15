@@ -14,11 +14,9 @@ view {searchQuery, searchResult} =
     ],
     div [class "container"] [
       div [class "col s12"] [
-        form [action "#", class "card"] [
-          div [class "search-field"] [
-            i [class "material-icons prefix text-xl grey-text text-darken-2"] [text "search"],
-            input [id "search-field", type_ "text", value searchQuery, onInput SearchQueryChange, placeholder "Search..."] []
-          ]
+        div [class "search-field card"] [
+          i [class "material-icons prefix text-xl grey-text text-darken-2"] [text "search"],
+          input [id "search-field", type_ "text", value searchQuery, onInput SearchQueryChange, placeholder "Search..."] []
         ]
       ],
       if searchQuery == ""
