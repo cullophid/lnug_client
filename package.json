@@ -10,7 +10,7 @@
     "watch": "watch 'npm run build:debug' src",
     "livereload": "parallelshell 'livereload public/' 'npm run watch'",
     "dev": "parallelshell 'npm start' 'npm run livereload'",
-    "start": "serve public -p 8181"
+    "start": "serve --cors -p 8181 public"
   },
   "author": "",
   "license": "ISC",

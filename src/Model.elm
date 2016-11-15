@@ -15,18 +15,23 @@ type RemoteData a =
 
 type alias Speaker = {
   id : String,
+  handle : String,
   name : String,
   surname: String,
-  title: String
+  title: String,
+  apiSpeakerUrl : String,
+  speakerUrl : String,
+  img : String
   }
 
 
 type alias Talk = {
   title : String,
   description : String,
-  speaker : Speaker
+  milestone : String,
+  speaker : Speaker,
+  video: Maybe String
   }
-
 
 type alias Model = {
   searchQuery : String,
@@ -39,19 +44,24 @@ defaultModel = {
     searchResult = NotRequested
   }
 
-
 talkDecoder : Decoder Talk
 talkDecoder =
-  map3 Talk
+  map5 Talk
     (field "title" string)
     (field "description" string)
+    (field "milestone" string)
     (field "speaker" speakerDecoder)
+    (maybe (field "video" string))
 
 
 speakerDecoder : Decoder Speaker
 speakerDecoder =
-  map4 Speaker
+  map8 Speaker
     (field "_id" string)
+    (field "handle" string)
     (field "name" string)
     (field "surname" string)
     (field "title" string)
+    (field "apiSpeakerUrl" string)
+    (field "speakerUrl" string)
+    (field "img" string)

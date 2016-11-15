@@ -1,7 +1,10 @@
 module Update exposing (update)
 import Model exposing (..)
 import Http
-import Json.Decode
+import Json.Decode as Decode
+
+apiUrl : String
+apiUrl = "http://ec2-52-17-145-171.eu-west-1.compute.amazonaws.com:8080/"
 
 update: Msg -> Model -> (Model, Cmd Msg)
 update message state =
@@ -20,20 +23,23 @@ update message state =
       (state, Cmd.none)
 
 
-
-
 errorResponseToString : Http.Error -> String
 errorResponseToString err =
   case err of
-    Http.Timeout -> "Timeout"
-    Http.BadUrl err -> err
-    Http.NetworkError -> "NetworkError"
+    Http.Timeout ->
+      "Timeout"
+    Http.BadUrl err ->
+      err
+    Http.NetworkError ->
+      "NetworkError"
     Http.BadStatus {status, body} ->
         (toString status) ++ ": " ++ body
-    Http.BadPayload err {status, body} -> (toString status) ++ ": " ++ err ++ "/n" ++ body
+    Http.BadPayload err {status, body} ->
+      (toString status) ++ ": " ++ err ++ "/n" ++ body
 
 
 getSearchResults : String -> Cmd Msg
 getSearchResults query =
   Http.send SearchResults
-  <| Http.get ("http://ec2-52-17-145-171.eu-west-1.compute.amazonaws.com:8080/?q=" ++ query) (Json.Decode.list talkDecoder)
+  <| Http.get (apiUrl ++ "?q=" ++  query)
+  <| (Decode.list talkDecoder)

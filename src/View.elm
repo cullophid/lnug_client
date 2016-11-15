@@ -1,7 +1,7 @@
 module View exposing (view)
 import Model exposing(..)
 import Html exposing (..)
-import Html.Attributes exposing (href, src, class, for, id, action, type_, style, placeholder, value)
+import Html.Attributes exposing (target, href, src, class, for, id, action, type_, style, placeholder, value)
 import Html.Events exposing (onInput)
 
 view : Model -> Html Msg
@@ -35,31 +35,40 @@ renderSearchResults result =
   case result of
     NotRequested -> emptyText
     Pending -> renderSpinner
-    Success talks -> div [class "row anim-list-stagger"] <| List.map renderTalk talks
+    Success talks -> div [class "row anim-list-stagger perspective"] <| List.map renderTalk talks
     Failed err -> text err
 
 
 renderTalk : Talk -> Html Msg
-renderTalk {title, description, speaker} =
+renderTalk {title, description, speaker, milestone, video} =
   div [class "col s12 l6 anim-fold-in"] [
     div [class "card"] [
       div [class "card-content"] [
         span [class "card-title"] [text <| " " ++ title],
-        p [] [text description]
+        p [] [text <| textSnippet 250 description]
       ],
       div [class "card-content"] [
-        renderSpeaker speaker
+        renderSpeaker speaker,
+        h6 [class "right"] [text milestone]
       ],
       div [class "card-action"] [
-        a [href "#", class "center-align inline-block"] [ text "YouTube"]
+        a [href speaker.speakerUrl, target "_blank"] [text "Github"],
+        youtubeLink video
       ]
     ]
   ]
 
+youtubeLink : Maybe String -> Html Msg
+youtubeLink video =
+  case video of
+    Just url ->
+      a [href url, target "_blank"] [ text "YouTube"]
+    Nothing -> text ""
+
 renderSpeaker : Speaker -> Html Msg
 renderSpeaker speaker =
   span [class "chip"] [
-    img [src "http://placekitten.com/30/30"] [],
+    img [src speaker.img] [],
     text <| speaker.name ++ " " ++ speaker.surname
   ]
 
@@ -94,3 +103,11 @@ carousel =
       img [src "http://lorempixel.com/250/250/nature/5"][]
     ]
   ]
+
+textSnippet : Int -> String -> String
+textSnippet len text =
+  let
+    limit  = len + 50
+    shorten = (flip String.append <| "...") << (String.slice 0 len)
+  in
+    if String.length text > limit then shorten text else text

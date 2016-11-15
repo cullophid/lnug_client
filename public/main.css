@@ -1,3 +1,6 @@
+.perspective {
+  perspective: 800px;
+}
 .search-field {
   box-sizing: border-box;
   position: relative;
@@ -59,17 +62,15 @@ input:-ms-input-placeholder {
   display: block;
   width: 100%;
 }
-body, html {
-  height: 100%;
-  width: 100%;
+html, body {
   padding: 0;
   margin: 0;
+  min-height: 100vh;
 }
-
 body {
-  perspective: 800px;
   font-weight: 300;
 }
+
 
 .anim-list-stagger > *:nth-child(2) {
   animation-delay: 50ms;
