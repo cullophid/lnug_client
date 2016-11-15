@@ -1,44 +1,98 @@
 module View exposing (view)
 import Model exposing(..)
 import Html exposing (..)
-import Html.Attributes exposing (class, for, id, action, type_, style, placeholder, value)
+import Html.Attributes exposing (href, src, class, for, id, action, type_, style, placeholder, value)
 import Html.Events exposing (onInput)
 
 view : Model -> Html Msg
 view {title, searchQuery, searchResult} =
-  div [] [
+  div [class ""] [
     nav [class "nav-wrapper row purple darken-3"] [
       div [class "col s12"] [
         span [class "brand-logo"] [text title]
       ]
     ],
     div [class "container"] [
-      form [action "#", class "col s12"] [
-        div [class "input-field col s12"] [
-          i [class "material-icons prefix"] [text "search"],
-          input [id "search-field", type_ "text", value searchQuery, onInput SearchQueryChange ] [],
-          label [for "search-field"][text "Search..."]
+      div [class "col s12"] [
+        form [action "#", class "card"] [
+          div [class "search-field"] [
+            i [class "material-icons prefix text-xl grey-text text-darken-2"] [text "search"],
+            input [id "search-field", type_ "text", value searchQuery, onInput SearchQueryChange ] []
+          ]
         ]
       ],
-      pre [] [renderSearchResults searchResult]
+      if searchQuery == ""
+        then
+          emptyText
+        else
+          renderSearchResults searchResult
     ]
   ]
+
+emptyText : Html Msg
+emptyText = h4 [class "grey-text text-lighten-1 text-emp center-align"] [ text "Type in the field above to search"]
 
 renderSearchResults : RemoteData (List Talk) -> Html Msg
 renderSearchResults result =
   case result of
-    NotRequested -> text "Type in the field above to search"
-    Pending -> text "Loading"
-    Success talks -> ul [class "collection"] <| List.map renderTalk talks
+    NotRequested -> emptyText
+    Pending -> renderSpinner
+    Success talks -> div [class "row anim-list-stagger"] <| List.map renderTalk talks
     Failed err -> text err
 
 
 renderTalk : Talk -> Html Msg
-renderTalk {title, description} =
-  li [class "collection-item avatar"] [
-    i [class "material-icons circle pink"] [text "picture_in_picture"],
-    div [] [
-      span [class "title"] [text title],
-      p [] [text description]
+renderTalk {title, description, speaker} =
+  div [class "col s12 l6 anim-fold-in"] [
+    div [class "card"] [
+      div [class "card-content"] [
+        span [class "card-title"] [text <| " " ++ title],
+        p [] [text description]
+      ],
+      div [class "card-content"] [
+        renderSpeaker speaker
+      ],
+      div [class "card-action"] [
+        a [href "#", class "center-align inline-block"] [ text " Watch on YouTube"]
+      ]
+    ]
+  ]
+
+renderSpeaker : Speaker -> Html Msg
+renderSpeaker speaker =
+  span [class "chip"] [
+    img [src "http://placekitten.com/30/30"] [],
+    text <| speaker.name ++ " " ++ speaker.surname
+  ]
+
+renderSpinner : Html Msg
+renderSpinner =
+  div [class "center-align"] [
+    div [class "preloader-wrapper big active"] [
+      div [class "spinner-layer"] [
+        div [class "circle-clipper left"] [
+          div [class "circle"] []
+        ]
+      ]
+    ]
+  ]
+
+carousel : Html Msg
+carousel =
+  div [class "carousel"] [
+    a [class "carousel-item", href "#one!"] [
+      img [src "http://lorempixel.com/250/250/nature/1"][]
+    ],
+    a [class "carousel-item", href "#two!"] [
+      img [src "http://lorempixel.com/250/250/nature/2"][]
+    ],
+    a [class "carousel-item", href "#three!"] [
+      img [src "http://lorempixel.com/250/250/nature/3"][]
+    ],
+    a [class "carousel-item", href "#four!"] [
+      img [src "http://lorempixel.com/250/250/nature/4"][]
+    ],
+    a [class "carousel-item", href "#five!"] [
+      img [src "http://lorempixel.com/250/250/nature/5"][]
     ]
   ]

@@ -3,7 +3,6 @@ import Model exposing (..)
 import View
 import Update
 
-
 main : Program Never Model Msg
 main = program {
   init = (Model.defaultModel, Cmd.none),
@@ -11,7 +10,6 @@ main = program {
   update = Update.update,
   subscriptions = subscriptions
   }
-
 
 subscriptions : Model -> Sub Msg
 subscriptions model = Sub.none

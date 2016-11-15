@@ -20,6 +20,7 @@ type alias Speaker = {
   title: String
   }
 
+
 type alias Talk = {
   title : String,
   description : String,

@@ -20,10 +20,6 @@ update message state =
       (state, Cmd.none)
 
 
-getSearchResults : String -> Cmd Msg
-getSearchResults query =
-  Http.send SearchResults
-  <| Http.get ("http://localhost:8080?query=" ++ query) (Json.Decode.list talkDecoder)
 
 
 errorResponseToString : Http.Error -> String
@@ -35,3 +31,9 @@ errorResponseToString err =
     Http.BadStatus {status, body} ->
         (toString status) ++ ": " ++ body
     Http.BadPayload err {status, body} -> (toString status) ++ ": " ++ err ++ "/n" ++ body
+
+
+getSearchResults : String -> Cmd Msg
+getSearchResults query =
+  Http.send SearchResults
+  <| Http.get ("http://ec2-52-17-145-171.eu-west-1.compute.amazonaws.com:8080/?q=" ++ query) (Json.Decode.list talkDecoder)
