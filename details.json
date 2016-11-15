@@ -67,7 +67,8 @@
     "milestone": "September 28th 2016",
     "img": "https://avatars.githubusercontent.com/u/807661?v=3",
     "handle": "foxreymann",
-    "name": "Fox Reymann"
+    "name": "Fox Reymann",
+    "youtubeUrl" : "https://youtu.be/hr61xyYSP6k"
   },
   {
     "apiSpeakerUrl": "https://api.github.com/users/gnugat",
@@ -77,7 +78,8 @@
     "milestone": "September 28th 2016",
     "img": "https://avatars.githubusercontent.com/u/793185?v=3",
     "handle": "gnugat",
-    "name": "Loïc Faugeron"
+    "name": "Loïc Faugeron",
+    "youtubeUrl": "https://youtu.be/BwqouUxn-bg"
   },
   {
     "apiSpeakerUrl": "https://api.github.com/users/tanzim",
@@ -87,7 +89,8 @@
     "milestone": "September 28th 2016",
     "img": "https://avatars.githubusercontent.com/u/1591642?v=3",
     "handle": "tanzim",
-    "name": "Tanzim"
+    "name": "Tanzim",
+    "youtubeUrl": "https://youtu.be/Dlo3e-0wB1E"
   },
   {
     "apiSpeakerUrl": "https://api.github.com/users/dmagliola",
@@ -147,7 +150,8 @@
     "milestone": "January 27th 2016",
     "img": "https://avatars.githubusercontent.com/u/3088374?v=3",
     "handle": "hxoliverrumbelow",
-    "name": "Oliver Rumbelow"
+    "name": "Oliver Rumbelow",
+    "youtubeUrl": "https://youtu.be/1mYl6v0Kzt0"
   },
   {
     "apiSpeakerUrl": "https://api.github.com/users/HugoDF",
@@ -157,7 +161,8 @@
     "milestone": "January 27th 2016",
     "img": "https://avatars.githubusercontent.com/u/6459679?v=3",
     "handle": "HugoDF",
-    "name": "Hugo"
+    "name": "Hugo",
+    "youtubeUrl": "https://youtu.be/b3wYEn2r_Ac"
   },
   {
     "apiSpeakerUrl": "https://api.github.com/users/philnash",
@@ -167,7 +172,8 @@
     "milestone": "January 27th 2016",
     "img": "https://avatars.githubusercontent.com/u/31462?v=3",
     "handle": "philnash",
-    "name": "Phil Nash"
+    "name": "Phil Nash",
+    "youtubeUrl": "https://youtu.be/Wuc4Nh3lmSE"
   },
   {
     "apiSpeakerUrl": "https://api.github.com/users/BenHall",
@@ -177,7 +183,8 @@
     "milestone": "November 25th 2015",
     "img": "https://avatars.githubusercontent.com/u/82614?v=3",
     "handle": "BenHall",
-    "name": "Ben Hall"
+    "name": "Ben Hall",
+    "youtubeUrl": "https://youtu.be/nBBJh75SqS4"
   },
   {
     "apiSpeakerUrl": "https://api.github.com/users/fabiosantoscode",
@@ -187,7 +194,8 @@
     "milestone": "November 25th 2015",
     "img": "https://avatars.githubusercontent.com/u/1611595?v=3",
     "handle": "fabiosantoscode",
-    "name": "Fábio Santos"
+    "name": "Fábio Santos",
+    "youtubeUrl": "https://youtu.be/6RKxkINidvk"
   },
   {
     "apiSpeakerUrl": "https://api.github.com/users/forbesmyester",
@@ -197,7 +205,8 @@
     "milestone": "November 25th 2015",
     "img": "https://avatars.githubusercontent.com/u/3470771?v=3",
     "handle": "forbesmyester",
-    "name": "Matt Forrester"
+    "name": "Matt Forrester",
+    "youtubeUrl": "https://youtu.be/qPCF4JUyllc"
   },
   {
     "apiSpeakerUrl": "https://api.github.com/users/bananaoomarang",
@@ -207,7 +216,8 @@
     "milestone": "October 28th 2015",
     "img": "https://avatars.githubusercontent.com/u/815831?v=3",
     "handle": "bananaoomarang",
-    "name": "Milo Mordaunt"
+    "name": "Milo Mordaunt",
+    "youtubeUrl":"https://youtu.be/n99Jhop6K8Y"
   },
   {
     "apiSpeakerUrl": "https://api.github.com/users/alistairstead",
@@ -217,7 +227,8 @@
     "milestone": "October 28th 2015",
     "img": "https://avatars.githubusercontent.com/u/62936?v=3",
     "handle": "alistairstead",
-    "name": "Alistair Stead"
+    "name": "Alistair Stead",
+    "youtubeUrl":"https://youtu.be/YP_YIH4GoGE"
   },
   {
     "apiSpeakerUrl": "https://api.github.com/users/tomgco",
@@ -227,7 +238,8 @@
     "milestone": "October 28th 2015",
     "img": "https://avatars.githubusercontent.com/u/524382?v=3",
     "handle": "tomgco",
-    "name": "Tom Gallacher"
+    "name": "Tom Gallacher",
+    "youtubeUrl":"https://youtu.be/iBEjz38ppe4"
   },
   {
     "apiSpeakerUrl": "https://api.github.com/users/bodil",
@@ -267,7 +279,8 @@
     "milestone": "August 26th 2015",
     "img": "https://avatars.githubusercontent.com/u/822369?v=3",
     "handle": "tjanczuk",
-    "name": "Tomasz Janczuk"
+    "name": "Tomasz Janczuk",
+    "youtubeUrl":"https://youtu.be/bhQ3Ov4niPs"
   },
   {
     "apiSpeakerUrl": "https://api.github.com/users/danjenkins",
@@ -277,7 +290,8 @@
     "milestone": "August 26th 2015",
     "img": "https://avatars.githubusercontent.com/u/243117?v=3",
     "handle": "danjenkins",
-    "name": "Dan Jenkins"
+    "name": "Dan Jenkins",
+    "youtubeUrl": "https://youtu.be/tB9z4ZOoSwg"
   },
   {
     "apiSpeakerUrl": "https://api.github.com/users/pimterry",
@@ -287,6 +301,7 @@
     "milestone": "August 26th 2015",
     "img": "https://avatars.githubusercontent.com/u/1526883?v=3",
     "handle": "pimterry",
-    "name": "Tim Perry"
+    "name": "Tim Perry",
+    "youtubeUrl":"https://youtu.be/UI9cgrMxGi0"
   }
 ]
