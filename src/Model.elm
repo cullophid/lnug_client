@@ -28,7 +28,7 @@ type alias Speaker = {
 type alias Talk = {
   title : String,
   description : String,
-  milestone : String,
+  milestone : Maybe String,
   speaker : Speaker,
   video: Maybe String
   }
@@ -49,7 +49,7 @@ talkDecoder =
   map5 Talk
     (field "title" string)
     (field "description" string)
-    (field "milestone" string)
+    (maybe (field "milestone" string))
     (field "speaker" speakerDecoder)
     (maybe (field "video" string))
 

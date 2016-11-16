@@ -50,7 +50,7 @@ renderTalk {title, description, speaker, milestone, video} =
       ],
       div [class "card-content"] [
         renderSpeaker speaker,
-        h6 [class "right grey-text"] [text milestone]
+        h6 [class "right grey-text"] [text <| Maybe.withDefault "" milestone]
       ],
       div [class "card-action"] [
         a [href speaker.speakerUrl, target "_blank"] [text "Github"],
