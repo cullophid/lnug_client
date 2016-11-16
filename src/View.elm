@@ -3,6 +3,7 @@ import Model exposing(..)
 import Html exposing (..)
 import Html.Attributes exposing (target, href, src, class, for, id, action, type_, style, placeholder, value)
 import Html.Events exposing (onInput)
+import Markdown
 
 view : Model -> Html Msg
 view {searchQuery, searchResult} =
@@ -61,7 +62,7 @@ renderTalk {title, description, speaker, milestone, video} =
           i [class "material-icons right"] [text "close"],
           text title
         ],
-        p [] [text description]
+        p [] [ Markdown.toHtml [] description]
       ]
     ]
   ]
