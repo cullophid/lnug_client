@@ -41,19 +41,27 @@ renderSearchResults result =
 
 renderTalk : Talk -> Html Msg
 renderTalk {title, description, speaker, milestone, video} =
-  div [class "col s12 l6 anim-fold-in"] [
+  div [class "col s12 anim-fold-in"] [
     div [class "card"] [
       div [class "card-content"] [
         span [class "card-title"] [text <| " " ++ title],
-        p [] [text <| textSnippet 250 description]
+        p [] [text <| textSnippet 140 description]
       ],
       div [class "card-content"] [
         renderSpeaker speaker,
-        h6 [class "right"] [text milestone]
+        h6 [class "right grey-text"] [text milestone]
       ],
       div [class "card-action"] [
         a [href speaker.speakerUrl, target "_blank"] [text "Github"],
-        youtubeLink video
+        youtubeLink video,
+        a [class "activator right link"] [text "more"]
+      ],
+      div [class "card-reveal"] [
+        span [class "card-title grey-text text-darken-4"] [
+          i [class "material-icons right"] [text "close"],
+          text title
+        ],
+        p [] [text description]
       ]
     ]
   ]

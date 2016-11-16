@@ -41,5 +41,5 @@ errorResponseToString err =
 getSearchResults : String -> Cmd Msg
 getSearchResults query =
   Http.send SearchResults
-  <| Http.get (apiUrl ++ "?q=" ++  query)
+  <| Http.get (apiUrl ++ "?q=" ++  Http.encodeUri query)
   <| (Decode.list talkDecoder)
