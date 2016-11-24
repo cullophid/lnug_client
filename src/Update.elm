@@ -9,7 +9,7 @@ apiUrl = "http://ec2-52-17-145-171.eu-west-1.compute.amazonaws.com:8080/"
 update: Msg -> Model -> (Model, Cmd Msg)
 update message state =
   case message of
-    SearchQueryChange query ->
+      SearchQueryChange query ->
       ({
         state |
           searchQuery = query,

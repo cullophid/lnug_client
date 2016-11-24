@@ -93,26 +93,6 @@ renderSpinner =
     ]
   ]
 
-carousel : Html Msg
-carousel =
-  div [class "carousel"] [
-    a [class "carousel-item", href "#one!"] [
-      img [src "http://lorempixel.com/250/250/nature/1"][]
-    ],
-    a [class "carousel-item", href "#two!"] [
-      img [src "http://lorempixel.com/250/250/nature/2"][]
-    ],
-    a [class "carousel-item", href "#three!"] [
-      img [src "http://lorempixel.com/250/250/nature/3"][]
-    ],
-    a [class "carousel-item", href "#four!"] [
-      img [src "http://lorempixel.com/250/250/nature/4"][]
-    ],
-    a [class "carousel-item", href "#five!"] [
-      img [src "http://lorempixel.com/250/250/nature/5"][]
-    ]
-  ]
-
 textSnippet : Int -> String -> String
 textSnippet len text =
   let
